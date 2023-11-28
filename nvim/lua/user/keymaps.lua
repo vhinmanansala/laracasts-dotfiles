@@ -37,3 +37,13 @@ vim.keymap.set('n', '<A-j>', ':move .+1<CR>==')
 vim.keymap.set('n', '<A-k>', ':move .-2<CR>==')
 vim.keymap.set('v', '<A-j>', ":move '>+1<CR>gv=gv")
 vim.keymap.set('v', '<A-k>', ":move '<-2<CR>gv=gv")
+vim.keymap.set("n", "<M-t>", "<cmd>terminal<cr>", { desc = "[T]erminal [N]ew" })
+
+vim.keymap.set("n", "<C-w>", function()
+  vim.cmd("set bufhidden=delete")
+  local bufid = vim.api.nvim_get_current_buf()
+  vim.cmd("confirm bp")
+  if bufid == vim.api.nvim_get_current_buf() then
+    vim.cmd("confirm enew")
+  end
+end, { desc = "[B]uffer [C]lose" })
