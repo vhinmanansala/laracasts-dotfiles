@@ -286,7 +286,7 @@ require('lazy').setup({
         },
       }
 
-      vim.keymap.set('n', '<leader>ft', '<cmd>NvimTreeToggle<cr>', { desc = "[F]ile [T]ree" })
+      vim.keymap.set('n', '<M-1>', '<cmd>NvimTreeToggle<cr>', { desc = "File Tree" })
     end
   },
 
@@ -372,7 +372,7 @@ require('telescope').setup {
 pcall(require('telescope').load_extension, 'fzf')
 
 local builtin = require('telescope.builtin')
-vim.keymap.set('n', '<leader>ff', builtin.find_files, { desc = "[F]ind [F]ile" })
+vim.keymap.set('n', '<C-p>', builtin.find_files, { desc = "[F]ind [F]ile" })
 vim.keymap.set('n', '<leader>fg', builtin.git_files, { desc = "[F]ind File (in [G]it)" })
 vim.keymap.set('n', '<leader>fo', builtin.oldfiles, { desc = "[F]ind Recently [O]pened Files" })
 vim.keymap.set('n', '<leader>fw', builtin.live_grep, { desc = "[F]ind In Files (Live [G]rep)" })
