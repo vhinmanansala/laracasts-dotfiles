@@ -56,7 +56,7 @@ vim.keymap.set("n", "<leader>rs", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left>
 vim.keymap.set("n", "<leader>fx", "<cmd>!chmod +x %<CR>", { silent = true, desc = "[F]ile e[X]ecutable" })
 
 vim.keymap.set({ "n", "v", "t" }, "<C-q>", "<cmd>confirm qa<cr>", {})
-vim.keymap.set("n", "<leader>bc", function()
+vim.keymap.set("n", "<C-w>", function()
   vim.cmd("set bufhidden=delete")
   local bufid = vim.api.nvim_get_current_buf()
   vim.cmd("confirm bp")
@@ -65,5 +65,5 @@ vim.keymap.set("n", "<leader>bc", function()
   end
 end, { desc = "[B]uffer [C]lose" })
 
-vim.keymap.set("n", "<leader>tn", "<cmd>terminal<cr>", { desc = "[T]erminal [N]ew" })
+vim.keymap.set("n", "<M-t>", "<cmd>terminal<cr>", { desc = "[T]erminal [N]ew" })
 vim.keymap.set("t", "<Esc>", "<C-\\><C-n>", { desc = "Terminal Escape" })
