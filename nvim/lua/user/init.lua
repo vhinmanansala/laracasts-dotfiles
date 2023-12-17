@@ -3,7 +3,6 @@
 --  NOTE: Must happen before plugins are required (otherwise wrong leader will be used)
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
-require'lspconfig'.pyright.setup{}
 
 -- Install package manager
 --    https://github.com/folke/lazy.nvim
@@ -78,12 +77,12 @@ require('lazy').setup({
     opts = {
       -- See `:help gitsigns.txt`
       signs = {
-        add = { text = "│" },
-        change = { text = "│" },
-        delete = { text = "│" },
-        topdelete = { text = "‾" },
-        changedelete = { text = "~" },
-        untracked = { text = "│" },
+          add = { text = "│" },
+          change = { text = "│" },
+          delete = { text = "│" },
+          topdelete = { text = "‾" },
+          changedelete = { text = "~" },
+          untracked = { text = "│" },
       },
       on_attach = function(bufnr)
         vim.keymap.set('n', '<leader>hp', require('gitsigns').preview_hunk,
@@ -379,6 +378,7 @@ vim.keymap.set('n', '<leader>fo', builtin.oldfiles, { desc = "[F]ind Recently [O
 vim.keymap.set('n', '<leader>fw', builtin.live_grep, { desc = "[F]ind In Files (Live [G]rep)" })
 vim.keymap.set('n', '<leader>fh', builtin.help_tags, { desc = "[F]ind in [H]elp" })
 vim.keymap.set('n', '<leader>bl', builtin.buffers, { desc = "[B]uffer [L]ist" })
+vim.keymap.set('n', '<leader>st', '<cmd>Telescope current_buffer_fuzzy_find<cr>', { desc = "[S]earch [T]ext in current file" })
 vim.keymap.set('n', '<leader>gs', '<cmd>Telescope git_status<cr>', { desc = "[G]it [S]tatus" })
 vim.keymap.set('n', '<leader>gb', '<cmd>Telescope git_branches<cr>', { desc = "[G]it [B]ranches" })
 vim.keymap.set('n', '<leader>gm', package.loaded.gitsigns.blame_line, { desc = "[G]it [B]lame Line" })
@@ -521,6 +521,11 @@ local servers = {
       telemetry = { enable = false },
     },
   },
+    phpactor = {
+        php = {
+            filetypes = { 'php', 'phtml', 'inc' },
+        },
+    }
 }
 
 -- Setup neovim lua configuration

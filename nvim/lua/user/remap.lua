@@ -19,11 +19,6 @@ vim.keymap.set("n", "<leader>it", function()
   vim.opt.shiftwidth = 4
 end, { desc = "[I]ndent [T]abs" })
 
-vim.keymap.set("n", "<Up>", "<nop>", {})
-vim.keymap.set("n", "<Down>", "<nop>", {})
-vim.keymap.set("n", "<Left>", "<nop>", {})
-vim.keymap.set("n", "<Right>", "<nop>", {})
-
 vim.keymap.set("n", "<Tab>", "<cmd>bn<CR>", { desc = "Next Buffer" })
 vim.keymap.set("n", "<C-Tab>", "<cmd>bp<CR>", { desc = "Previous Buffer" })
 
@@ -67,3 +62,7 @@ end, { desc = "[B]uffer [C]lose" })
 
 vim.keymap.set("n", "<M-t>", "<cmd>terminal<cr>", { desc = "[T]erminal [N]ew" })
 vim.keymap.set("t", "<Esc>", "<C-\\><C-n>", { desc = "Terminal Escape" })
+vim.keymap.set('n', '<leader>l', [[:lua vim.fn.feedkeys(':TSDefinition<CR>')<CR>]], { noremap = true, silent = true })
+vim.keymap.set('n', '<C-r>', [[:lua require'telescope.builtin'.treesitter{ filetype = vim.fn.expand('%:e') }<CR>]], { noremap = true, silent = true })
+
+
